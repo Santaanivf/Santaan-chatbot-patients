@@ -11,7 +11,7 @@ load_dotenv()
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
-
+GROQ_API_KEY=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
 # Streamlit app settings
 st.set_page_config(
     page_title="Chatbot Interface",
