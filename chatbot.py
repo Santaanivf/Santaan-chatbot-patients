@@ -20,10 +20,6 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# Sidebar customization
-with st.sidebar:
-    st.title("Chatbot Settings")
-    st.write("Adjust the settings and see responses below!")
 
 # Main app layout
 st.markdown(
