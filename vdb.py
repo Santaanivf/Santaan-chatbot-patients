@@ -7,19 +7,19 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables from .env file
-load_dotenv()
-pinecone_api_key = os.getenv("PINECONE_API_KEY")
+# load_dotenv()
+# pinecone_api_key = os.getenv("PINECONE_API_KEY")
 PINECONE_API_KEY="pcsk_4FN6jn_7qPJVojUJwdx83vKckuzRxNjUfR3hb5Vqa1gWwJMcCoJyaj5MstK2byak7at1yT"
 # Debug: Check if API key is loaded
-if not pinecone_api_key:
-    raise ValueError("PINECONE_API_KEY is not loaded from .env file. Check your setup.")
+# if not pinecone_api_key:
+#     raise ValueError("PINECONE_API_KEY is not loaded from .env file. Check your setup.")
 
 # Define index name
 index_name = "santaan-material"
 
 # Initialize Pinecone client
 print("Initializing Pinecone client...")
-pc = Pinecone(api_key=pinecone_api_key)  # Correct variable used
+pc = Pinecone(api_key=PINECONE_API_KEY)  # Correct variable used
 print("Pinecone client initialized.")
 
 

@@ -5,12 +5,12 @@ from dotenv import load_dotenv
 import os
 
 # Load environment variables from .env file
-load_dotenv()
+# load_dotenv()
 
-# Initialize Groq client
-client = Groq(
-    api_key=os.getenv("GROQ_API_KEY")
-)
+# # Initialize Groq client
+# client = Groq(
+#     api_key=os.getenv("GROQ_API_KEY")
+# )
 GROQ_API_KEY="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"
 # Streamlit app settings
 st.set_page_config(
