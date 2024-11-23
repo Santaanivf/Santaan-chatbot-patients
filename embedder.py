@@ -1,4 +1,5 @@
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings
+
 
 print("Initializing HuggingFace embeddings model...")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
