@@ -3,9 +3,11 @@ from pinecone.grpc import PineconeGRPC as Pinecone
 from pinecone import ServerlessSpec
 from chunker import docs
 from embedder import embeddings
+import os
 
-# Explicitly set Pinecone API key
+# Set Pinecone API key
 PINECONE_API_KEY = "pcsk_4FN6jn_7qPJVojUJwdx83vKckuzRxNjUfR3hb5Vqa1gWwJMcCoJyaj5MstK2byak7at1yT"
+os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 
 # Define index name
 index_name = "santaan-material"
