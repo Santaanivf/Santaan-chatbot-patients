@@ -5,12 +5,10 @@ from chunker import docs
 from embedder import embeddings
 import os
 
-# Set Pinecone API key
-PINECONE_API_KEY = "pcsk_4FN6jn_7qPJVojUJwdx83vKckuzRxNjUfR3hb5Vqa1gWwJMcCoJyaj5MstK2byak7at1yT"
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 
 # Define index name
-index_name = "santaan"
+index_name = "santaan-material"
 
 # Initialize Pinecone client
 print("Initializing Pinecone client...")
