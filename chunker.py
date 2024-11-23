@@ -27,7 +27,7 @@ class PDFChunker:
 
 
 # Use the PDFChunker
-chunker = PDFChunker("Resources/v1.pdf")
+chunker = PDFChunker("Resources/v1_v2_merged.pdf")
 
 # Get the chunks
 docs = chunker.chunk()
