@@ -1,10 +1,15 @@
 import streamlit as st
 from vdb import docsearch
 from groq import Groq
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Initialize Groq client
 client = Groq(
-    api_key="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"
+    api_key=os.getenv("GROQ_API_KEY")
 )
 
 # Streamlit app settings
@@ -47,23 +52,17 @@ st.markdown(
         .input-box {
             font-size: 1.2rem;
         }
-        .context-box {
-            background-color: #FFF5E6;
-            padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
     </style>
     """,
     unsafe_allow_html=True,
 )
 
-st.markdown('<div class="title">Interactive Chatbot</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">Santaan Chatbot</div>', unsafe_allow_html=True)
 
 # User input
 user_question = st.text_input(
     "Type your question below:", 
-    placeholder="Ask me anything about the documents...",
+    placeholder="Insert your question here", 
     key="input_box",
 )
 
@@ -75,7 +74,7 @@ if user_question:
         context = "\n\n".join(doc.page_content for doc in r_docs)
 
         # System prompt for the chatbot
-        system_prompt = "You are a helpful assistant."
+        system_prompt = "You are a medical assistant who refers to the textbook and answers the question given by the user. You don't answer anything outside textbook. You can identify questions even with spelling mistakes."
 
         # Get chatbot response
         chat_completion = client.chat.completions.create(
@@ -84,7 +83,7 @@ if user_question:
                 {
                     "role": "user",
                     "content": f"""Answer the following question based on the context provided. 
-                    If you do not know the answer, say "I do not know."
+                    If you do not know the answer, say "I do not know. DO NOT SAY based on the content when starting the answer." 
                     
                     ## Question:
                     {user_question}
@@ -104,13 +103,6 @@ if user_question:
             f'<div class="response-box"><strong>Response:</strong><br>{response}</div>',
             unsafe_allow_html=True,
         )
-
-        # Display context (optional for debugging)
-        with st.expander("View Retrieved Context", expanded=False):
-            st.markdown(
-                f'<div class="context-box">{context}</div>',
-                unsafe_allow_html=True,
-            )
 
     except Exception as e:
         st.markdown(
