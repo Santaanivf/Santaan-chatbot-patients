@@ -52,7 +52,7 @@ Welcome to the **Santaan Chatbot** repository. This project was developed for **
 
 ## 👩‍💻 Contributor
 Developed with ❤️ by **Dharsini Sri Balasubramaniam**  
-📧 [Email](mailto:purpleunalome@gmail.com) | 🌐 [LinkedIn](https://linkedin.com/in/dharsinisrib) | 🔗 [GitHub](https://github.com/dhars1n1)
+📧 [Email](mailto:purpleunalome@gmail.com) | 🌐 [LinkedIn](www.linkedin.com/in/dharsinisri) | 🔗 [GitHub](https://github.com/dhars1n1)
 
 
 
