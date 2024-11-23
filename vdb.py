@@ -1,19 +1,27 @@
 from langchain_pinecone import PineconeVectorStore
 from pinecone.grpc import PineconeGRPC as Pinecone
 from pinecone import ServerlessSpec
-from chunker import docs 
+from chunker import docs
 from embedder import embeddings
+from dotenv import load_dotenv
 import os
 
-os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
+# Load environment variables from .env file
+load_dotenv()
+pinecone_api_key = os.getenv("PINECONE_API_KEY")
+
+# Debug: Check if API key is loaded
+if not pinecone_api_key:
+    raise ValueError("PINECONE_API_KEY is not loaded from .env file. Check your setup.")
 
 # Define index name
 index_name = "santaan-material"
 
 # Initialize Pinecone client
 print("Initializing Pinecone client...")
-pc = Pinecone(api_key=PINECONE_API_KEY)
+pc = Pinecone(api_key=pinecone_api_key)  # Correct variable used
 print("Pinecone client initialized.")
+
 
 # Function to create an index and conditionally upsert embeddings
 def create_index_and_upsert(index_name):
@@ -24,7 +32,7 @@ def create_index_and_upsert(index_name):
         pc.create_index(
             name=index_name,
             dimension=384,
-            metric="cosine",  # Metric: cosine, euclidean, or dot product
+            metric="cosine",  
             spec=ServerlessSpec(
                 cloud='aws',
                 region='us-east-1'

@@ -1,10 +1,10 @@
-from langchain.embeddings import HuggingFaceEmbeddings
-
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 print("Initializing HuggingFace embeddings model...")
 embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
 print("Model initialized successfully.")
 
+# Example usage:
 # query = "Hi How are you?"
 # print(f"Embedding query: '{query}'")
 # embed_vec = embeddings.embed_query(query)
