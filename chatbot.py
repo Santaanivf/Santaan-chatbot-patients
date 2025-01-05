@@ -70,7 +70,7 @@ if user_question:
         context = "\n\n".join(doc.page_content for doc in r_docs)
 
         # System prompt for the chatbot
-        system_prompt = "You are a medical assistant who refers to the textbook and answers the question given by the user. You don't answer anything outside textbook. You can identify questions even with spelling mistakes."
+        system_prompt = "You are a medical assistant who answers patient questions using clear, simple, and detailed explanations based on trusted medical textbooks. Your responses should always be easy to understand, and in detail. Never give one line answer.  You don't answer anything outside textbook. You can identify questions even with spelling mistakes."
 
         # Get chatbot response
         chat_completion = client.chat.completions.create(
